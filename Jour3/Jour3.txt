@@ -1,0 +1,47 @@
+Job 01
+
+Job 02
+afficher l’ensemble des bases de données présentent dans Compass => show
+
+job 03
+Utiliser le terminal MongoSH pour créer une base de données nommée “shop” => use shop 
+Ajouter une collection nommée “product” et possédant les champs suivants => db.createCollection("product")
+
+job 04 
+Ajoutez les documents suivants à votre collection “product” => db.product.insertOne({"name": "pentalon noir","description": "un pentalon noir","price": 14.99,"quantity": 12})
+                                                               db.product.insertOne({ "name": "chaussettes", "description": "des chaussettes cools", "price": 6, "quantity": 6 });
+
+job 05
+Créez une nouvelle collection nommée “category” et insérez différentes catégories en une seule ligne de commande => db.category.insertMany([{"name": "tee shirt"},{"name":"casquette"},{"name":"sac"}])
+
+job 06
+À l’aide d’une ligne de commande, afficher l’ensemble des collections de votre base de données => show collections
+
+job 07
+Récupérez l’ensemble des données de la collection “category” => db.category.find()
+
+job 08
+Écrire une requête permettant d’afficher seulement deux catégories => db.category.find().limit(2)
+
+job 09
+Écrire une requête permettant de récupérer l’ensemble des produits classés par prix croissant => db.product.find().sort({price: 1})
+
+job 10 
+Écrire une requête permettant de récupérer l’ensemble des produits classés par prix décroissant => db.product.find().sort({price: -1})
+
+job 11
+Écrire une requête permettant de récupérer les produits ayant un prix supérieur à 5 euros et un stock inférieur à 100 => db.product.find({$and: [{"price": {$gt: 5}, "quantity": {$lt: 100}}]})
+
+job 12
+Écrire une requête permettant de récupérer les produits ayant un prix supérieur à 14.99 euros ou un stock supérieur à 100 => db.product.find({$or: [{"price": {$gt: 14.99}, "quantity": {$gt: 100}}]})
+
+job 13
+Récupérer l’ensemble des produits sans leurs id => db.product.find({},{_id: 0})
+
+job 14
+Récupérer une catégorie à l’aide de son id => db.product.find({"_id": ObjectId('66447a551fab856bbc599902')})
+
+job 15
+Changer le nom de la catégorie “bébé” en “Vêtements pour enfant” => db.category.updateOne({"name": "bébé"}, {$set: {"name": "Vêtements pour enfants"}})
+
+job 16
